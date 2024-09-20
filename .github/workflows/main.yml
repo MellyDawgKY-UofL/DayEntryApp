@@ -1,4 +1,4 @@
-name: Build Without CMake
+name: Build DayEntryApp Without CMake
 
 on:
   push:
@@ -19,7 +19,7 @@ jobs:
 
     - name: Build using GCC/Clang
       run: |
-        g++ -o myprogram main.cpp file1.cpp file2.cpp
+        g++ -o DayEntryApp main.cpp DayEntryApp.cpp
 
-    - name: Run tests
-      run: ./myprogram
+    - name: Run the application
+      run: ./DayEntryApp
