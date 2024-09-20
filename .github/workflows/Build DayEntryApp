@@ -1,4 +1,4 @@
-name: Build DayEntryApp
+name: Build Without CMake
 
 on:
   push:
@@ -7,24 +7,19 @@ on:
   pull_request:
     branches:
       - main
+  workflow_dispatch: # This allows manual triggering from the GitHub UI
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Install build dependencies
-      run: sudo apt-get install -y build-essential cmake
-
-    - name: Configure the project
-      run: cmake .
-
-    - name: Build the project
-      run: make
+    - name: Build using GCC/Clang
+      run: |
+        g++ -o myprogram main.cpp file1.cpp file2.cpp
 
     - name: Run tests
-      run: ./DayEntryAppTests
+      run: ./myprogram
