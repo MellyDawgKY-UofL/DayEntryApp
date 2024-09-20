@@ -2,6 +2,7 @@
 #include <vector>
 #include <stdexcept>
 #include "Entry.h"
+#include <algorithm>
 
 class Date {
     int day, month, year;
